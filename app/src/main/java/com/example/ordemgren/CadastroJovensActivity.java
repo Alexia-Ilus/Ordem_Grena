@@ -1,23 +1,19 @@
 package com.example.ordemgren;
+
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.ordemgren.models.Jovem;
 import com.example.ordemgren.models.Patrulha;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Tela onde o usuário adiciona de 4 a 8 jovens na patrulha.
- * Depois salva a patrulha com os jovens no armazenamento.
- */
 public class CadastroJovensActivity extends AppCompatActivity {
-
     private LinearLayout layoutJovens;
-    private List<EditText> camposJovens = new ArrayList<>();
+    private Button btnSalvar;
+    private List<EditText> camposNomes;
+    private List<Patrulha> patrulhas;
     private String nomePatrulha;
 
     @Override
@@ -25,47 +21,50 @@ public class CadastroJovensActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_jovens);
 
-        nomePatrulha = getIntent().getStringExtra("nomePatrulha");
         layoutJovens = findViewById(R.id.layoutJovens);
+        btnSalvar = findViewById(R.id.btnSalvarPatrulha);
+        camposNomes = new ArrayList<>();
+        patrulhas = Utils.carregarPatrulhas(this);
 
-        // Cria campos para até 8 jovens
-        for (int i = 0; i < 8; i++) {
-            EditText campo = new EditText(this);
-            campo.setHint("Nome do Jovem " + (i + 1));
-            layoutJovens.addView(campo);
-            camposJovens.add(campo);
-        }
+        nomePatrulha = getIntent().getStringExtra("nomePatrulha");
 
-        findViewById(R.id.btnSalvarPatrulha).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                salvarPatrulha();
-            }
-        });
+        for (int i = 0; i < 8; i++) adicionarCampoJovem();
+
+        btnSalvar.setOnClickListener(v -> salvarPatrulha());
+    }
+
+    private void adicionarCampoJovem() {
+        EditText campo = new EditText(this);
+        campo.setHint("Nome do Jovem");
+        layoutJovens.addView(campo);
+        camposNomes.add(campo);
     }
 
     private void salvarPatrulha() {
         Patrulha patrulha = new Patrulha(nomePatrulha);
-        int preenchidos = 0;
-
-        for (EditText campo : camposJovens) {
+        int i = 0;
+        for (EditText campo : camposNomes) {
             String nome = campo.getText().toString();
             if (!nome.isEmpty()) {
                 patrulha.adicionarJovem(new Jovem(nome));
-                preenchidos++;
             }
         }
-
-        if (preenchidos < 4) {
-            Toast.makeText(this, "Adicione pelo menos 4 jovens", Toast.LENGTH_SHORT).show();
-            return;
+        if (patrulha.getJovens().size() >= 4 && patrulha.getJovens().size() <= 8) {
+            patrulhas.add(patrulha);
+            Utils.salvarPatrulhas(this, patrulhas);
+            for (Jovem jovem : patrulha.getJovens()) {
+                if (i == 0) {
+                    jovem.setMonitor(true);
+                }
+                else{
+                    jovem.setMonitor(false);
+                }
+                i++;
+            }
+            finish();
+        } else {
+            Toast.makeText(this, "Cadastre entre 4 a 8 jovens", Toast.LENGTH_SHORT).show();
         }
 
-        List<Patrulha> patrulhas = Utils.carregarPatrulhas(this);
-        patrulhas.add(patrulha);
-        Utils.salvarPatrulhas(this, patrulhas);
-
-        Toast.makeText(this, "Patrulha salva!", Toast.LENGTH_SHORT).show();
-        finish();
     }
 }

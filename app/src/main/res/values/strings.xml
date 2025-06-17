@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Ordem Grená</string>
+    <string name="editar_jovem">Editar Jovem</string>
+    <string name="editar_nome_do_jovem">Editar Nome do jovem</string>
+    <string name="monitor">Monitor</string>
+    <string name="patrulheiro">Patrulheiro</string>
+    <string name="salvar">Salvar</string>
+    <string name="excluir">Excluir</string>
+    <string name="x">X</string>
+    <string name="add_jovem">Adicionar Jovem</string>
+    <string name="nome_do_novo_jovem">Nome do novo jovem</string>
+    <string name="adicionar_patrulheiro">Adicionar Patrulheiro</string>
+    <string name="nenhuma_patrulha_cadastrada_ainda">Nenhuma patrulha cadastrada ainda.</string>
+    <string name="adicionar_patrulha">Adicionar Patrulha</string>
+    <string name="editar_patrulha">Editar Patrulha</string>
+    <string name="adicionar_conduta">Adicionar Conduta</string>
+    <string name="fechar_menu">Fechar Menu</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="carregar_jovens">Carregar Jovens</string>
+    <string name="excluir_patrulha">Excluir Patrulha</string>
+    <string name="salvar_conduta">Salvar Conduta</string>
 </resources>

@@ -1,13 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/iconeMenu"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:tint="@color/grená" />
+
+    <TextView
+        android:id="@+id/txtSemPatrulhas"
+        android:text="@string/nenhuma_patrulha_cadastrada_ainda"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <ListView
         android:id="@+id/listRanking"
+        android:layout_below="@id/iconeMenu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:id="@+id/menuLateral"
+        android:orientation="vertical"
+        android:background="@color/grená"
+        android:padding="16dp"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_alignParentStart="true"
+        android:elevation="8dp">
+
+        <Button
+            android:id="@+id/btnAbrirCadastro"
+            android:text="@string/adicionar_patrulha"
+            android:backgroundTint="@color/grená"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnAbrirEditar"
+            android:text="@string/editar_patrulha"
+            android:backgroundTint="@color/grená"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnAbrirFeito"
+            android:text="@string/adicionar_conduta"
+            android:backgroundTint="@color/grená"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnFecharMenu"
+            android:text="@string/fechar_menu"
+            android:backgroundTint="@color/grená"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+</RelativeLayout>

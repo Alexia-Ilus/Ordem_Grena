@@ -9,12 +9,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Exibe os detalhes da patrulha:
- * - Top 3 jovens com mais pontos
- * - Top 3 com mais pontos negativos
- * - Total da patrulha
- */
+
 public class DetalhePatrulhaActivity extends AppCompatActivity {
 
     private TextView txtDetalhes;
@@ -31,18 +26,16 @@ public class DetalhePatrulhaActivity extends AppCompatActivity {
         Patrulha patrulha = patrulhas.get(posicao);
 
         StringBuilder detalhes = new StringBuilder();
-        detalhes.append("Pontuação Total: ").append(patrulha.getPontuacaoTotal()).append("\n\n");
+        detalhes.append("Pontuação Total: ").append(patrulha.getPontosPatrulha()).append("\n\n");
 
         List<Jovem> jovens = patrulha.getJovens();
 
-        // Top 3 positivos
         detalhes.append("Top 3 Jovens com Mais Pontos:\n");
         Collections.sort(jovens, (a, b) -> Integer.compare(b.getPontos(), a.getPontos()));
         for (int i = 0; i < Math.min(3, jovens.size()); i++) {
             detalhes.append(jovens.get(i).getNome()).append(": ").append(jovens.get(i).getPontos()).append(" pts\n");
         }
 
-        // Top 3 negativos
         detalhes.append("\nTop 3 Jovens com Mais Pontos Negativos:\n");
         Collections.sort(jovens, Comparator.comparingInt(Jovem::getPontos));
         for (int i = 0; i < Math.min(3, jovens.size()); i++) {

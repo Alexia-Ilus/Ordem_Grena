@@ -9,33 +9,37 @@
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <Spinner
+            android:id="@+id/spinnerPatrulhaFeito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
 
         <Spinner
-            android:id="@+id/spinnerPatrulha"
+            android:id="@+id/spinnerTipo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerJovemFeito"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerFeito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
 
         <Button
-            android:id="@+id/btnSelecionarPatrulha"
-            android:text="Selecionar Patrulha"
+            android:id="@+id/btnSalvarFeito"
+            android:text="@string/salvar_conduta"
             android:backgroundTint="@color/grená"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"/>
+            android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:id="@+id/layoutJovens"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"/>
-
-        <Button
-            android:id="@+id/btnSalvarPontuacao"
-            android:text="Salvar Pontuação"
-            android:backgroundTint="@color/grená"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>

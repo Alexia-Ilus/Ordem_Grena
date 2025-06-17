@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="12dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Spinner
+            android:id="@+id/spinnerPatrulhaEditar"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/btnSelecionarEditar"
+            android:text="@string/carregar_jovens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray"
+            android:layout_marginTop="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/LayoutJovens"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <Button
+            android:id="@+id/adicionarJovem"
+            android:text="@string/adicionar_patrulheiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:backgroundTint="@color/gray"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/btnExcluirPatrulha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/grená"
+            android:foregroundGravity="bottom"
+            android:text="@string/excluir_patrulha"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>
+
